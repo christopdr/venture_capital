@@ -55,12 +55,13 @@ def case_studies():
 @app.route("/getData", methods=['GET'])
 def getData():
     myquery = { "Company Nation":"Brazil" }
-    algo =list(collection.find(myquery))
-    for elem in algo:
+    data =list(collection.find(myquery))
+    for elem in data:
         elem.pop('_id', None)
 
-    print(algo[:2])
-    return jsonify(algo)
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route("/metadata/<sample>")
 def sample_metadata(sample):
