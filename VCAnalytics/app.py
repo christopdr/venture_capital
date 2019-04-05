@@ -131,7 +131,7 @@ def topFundingByCountry():
     for key in total_country.keys():
         list_country.append({"Country": key , "Funding": total_country[key]})
     
-    list_country = sorted(list_country, key= lambda x: x["Country"], reverse=True)
+    list_country = sorted(list_country, key= lambda x: x["Funding"], reverse=True)
     response = jsonify(list_country)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
