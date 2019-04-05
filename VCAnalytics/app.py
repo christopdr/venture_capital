@@ -54,14 +54,41 @@ def case_studies():
 
 @app.route("/getData", methods=['GET'])
 def getData():
-    myquery = { "Company Nation":"Brazil" }
-    data =list(collection.find(myquery))
+    #myquery = { "Company Nation":"Brazil" }
+    data =list(collection.find())
     for elem in data:
         elem.pop('_id', None)
 
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+
+@app.route("/topFunding", methods=['GET'])
+def topFunding():
+    #myquery = { "Company Nation":"Brazil" }
+    data =list(collection.find())
+    for elem in data:
+        elem.pop('_id', None)
+        elem.pop('All Investor Firms', None)
+        elem.pop('Company / Real Estate', None)
+        elem.pop('Company Business Description', None)
+        elem.pop('CSIC Description', None)
+        elem.pop('Company Street Address, Line 1', None)
+        elem.pop('Company Zip Code', None)
+        elem.pop('Current Investor Firms', None)
+        elem.pop('Gross Profit (USD) Mil', None)
+        elem.pop('Last Investment Date', None)
+        elem.pop('NAIC Description', None)
+        elem.pop('Return on Equity', None)
+        elem.pop('Revenue / Net Sales (USD) Mil', None)
+        elem.pop('Statement Date', None)
+        elem["Company Name"] = elem.pop('﻿Company Name', None)
+
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 
 @app.route("/metadata/<sample>")
 def sample_metadata(sample):
