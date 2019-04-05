@@ -94,6 +94,43 @@ def topFunding():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route("/topFundingByCountry", methods=['GET'])
+def topFundingByCountry():
+    #myquery = { "Company Nation":"Brazil" }
+    data =list(collection.find())
+    for elem in data:
+        elem.pop('_id', None)
+        elem.pop('All Investor Firms', None)
+        elem.pop('Company / Real Estate', None)
+        elem.pop('Company Business Description', None)
+        elem.pop('CSIC Description', None)
+        elem.pop('Company Street Address, Line 1', None)
+        elem.pop('Company Zip Code', None)
+        elem.pop('Current Investor Firms', None)
+        elem.pop('Gross Profit (USD) Mil', None)
+        elem.pop('Last Investment Date', None)
+        elem.pop('NAIC Description', None)
+        elem.pop('Return on Equity', None)
+        elem.pop('Revenue / Net Sales (USD) Mil', None)
+        elem.pop('Statement Date', None)
+        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        try:
+            elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
+        except:
+            elem["Total Funding To Date (USD) Mil"] = 0
+    
+    total_country = {}
+    for elem in data:
+        key_val = elem["Company Nation"]
+        if key_val in total_country.keys():
+            total_country[key_val] += float(elem["Total Funding To Date (USD) Mil"])
+        else:
+            total_country[key_val] = float(elem["Total Funding To Date (USD) Mil"])
+    
+    
+    response = jsonify(total_country)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route("/metadata/<sample>")
 def sample_metadata(sample):
