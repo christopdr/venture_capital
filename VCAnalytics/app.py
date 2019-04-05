@@ -127,8 +127,12 @@ def topFundingByCountry():
         else:
             total_country[key_val] = float(elem["Total Funding To Date (USD) Mil"])
     
+    list_country = []
+    for key in total_country.keys():
+        list_country.append({"Country": key , "Funding": total_country[key]})
     
-    response = jsonify(total_country)
+    list_country = sorted(list_country, key= lambda x: x["Country"], reverse=True)
+    response = jsonify(list_country)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
