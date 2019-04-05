@@ -85,11 +85,11 @@ def topFunding():
         elem.pop('Statement Date', None)
         elem["Company Name"] = elem.pop('﻿Company Name', None)
         try:
-            elem["Total Funding To Date (USD) Mil"] = int(elem["Total Funding To Date (USD) Mil"])
+            elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
             elem["Total Funding To Date (USD) Mil"] = 0
 
-    data = sorted(data, key= lambda x: x["Total Funding To Date (USD) Mil"])
+    data = sorted(data, key= lambda x: x["Total Funding To Date (USD) Mil"], reverse=True)
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
