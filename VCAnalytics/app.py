@@ -137,8 +137,8 @@ def topFundingByCountry():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route("/CompanyFounded", methods=['GET'])
-def CompanyFounded():
+@app.route("/FundingByYear", methods=['GET'])
+def FundingByYear():
     #myquery = { "Company Nation":"Brazil" }
     data =list(collection.find())
     for elem in data:
@@ -156,14 +156,30 @@ def CompanyFounded():
         elem.pop('Return on Equity', None)
         elem.pop('Revenue / Net Sales (USD) Mil', None)
         elem.pop('Statement Date', None)
+        elem["Funding Year"] = elem["Company Founded Date"].split('/')[2]
+        elem.pop('Company Founded Date', None)
         elem["Company Name"] = elem.pop('﻿Company Name', None)
         try:
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
             elem["Total Funding To Date (USD) Mil"] = 0
 
-    data = sorted(data, key= lambda x: x["Total Funding To Date (USD) Mil"], reverse=True)
-    response = jsonify(data)
+
+    year_dict = {}
+    for year in data:
+        key_val = elem["Funding Year"]
+        if key_val in year_dict.keys():
+            year_dict[key_val] += float(elem["Total Funding To Date (USD) Mil"])
+        else:
+            year_dict[key_val] = float(elem["Total Funding To Date (USD) Mil"])
+
+    year_list = []
+    for key in year_dict.keys():
+        year_list.append(['year': key, 'total': year_dict[key] ])
+
+
+    year_list = sorted(year_list, key= lambda x: x["year"], reverse=True)
+    response = jsonify(year_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
