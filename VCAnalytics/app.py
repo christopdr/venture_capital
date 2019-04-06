@@ -52,6 +52,16 @@ def case_studies():
     #return jsonify(list(df.columns)[2:])
     return render_template("views/case_studies.html")
 
+@app.route("/topFunding", methods=['GET'])
+def topFunding():
+    top =collection.find({}, {'_id':1,'Company Name': 1, 'Total Funding To Date (USD) Mil':1})
+    top_list = []
+    for t in top:
+        print(t)
+        t.pop('_id', None)
+        top_list.append(t)
+    return jsonify(top_list)
+
 @app.route("/getData", methods=['GET'])
 def getData():
     #myquery = { "Company Nation":"Brazil" }
