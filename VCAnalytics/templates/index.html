@@ -11,6 +11,8 @@
   <script type="text/javascript" src="{{ url_for('static',filename='js/plotlyjs-bundle.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static',filename='js/graph1.js') }}"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/master.css') }}">
 
 </head>
 <body>
@@ -58,7 +60,7 @@
           </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static',filename='backgrounds/NAV/A2.png') }}" alt="Second slide">
+      <img class="d-block w-100" src="{{ url_for('static', filename='backgrounds/NAV/A2.jpg') }}" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="text-dark">
                 As the <strong><span class= "text-primary">D</span></strong>igital <strong><span class= "text-primary">A</span></strong>ge enables the generation of yotabytes of information, how do you analyze all this information?, to do an accurate and faster decision-making, you hire <strong><span class= "text-primary">US</span></strong>, so you can focus on what matters.</h1>
@@ -163,7 +165,7 @@
         <header>
           <div class="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="../resources/videos/Creative%20Capital%20for%20a%20Sustainable%20World%20_%20MS.mp4" type="video/mp4">
+            <source src="{{ url_for('static',filename='videos/creative_capital.mp4') }}" type="video/mp4">
           </video>
         </header>
 
