@@ -199,7 +199,7 @@ def FundingByYearCountry():
                 country_year_dict[country][year] += float(elem["Total Funding To Date (USD) Mil"])
 
     country_year_list = []
-    for c ion country_year_dict.keys():
+    for c in country_year_dict.keys():
         country_year_list.append('country': c, 'data' :country_year_dict[c])
 
     response = jsonify(country_year_list)
