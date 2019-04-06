@@ -190,17 +190,18 @@ def FundingByYearCountry():
         country_year_dict[cou] = returnYearDict(years_list)
 
 
-    for elem in data:
-        year = elem["Funding Year"]
-        ountry = elem["Company Nation"]
+    for coun in country_year_dict.keys():
+        for elem in data:
+            year = elem["Funding Year"]
+            country = elem["Company Nation"]
 
-        if country in country_year_dict:
-            if year in country_year_dict[country]:
-                country_year_dict[country][year] += float(elem["Total Funding To Date (USD) Mil"])
+            if coun == country:
+                if year in country_year_dict[coun]:
+                    country_year_dict[coun][year] += float(elem["Total Funding To Date (USD) Mil"])
 
     country_year_list = []
     for c in country_year_dict.keys():
-        country_year_list.append({'country': c, 'data' :country_year_dict[c]})
+        country_year_list.append({'country': c, 'data_by_year' :country_year_dict[c]})
 
     response = jsonify(country_year_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
