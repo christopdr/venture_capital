@@ -175,7 +175,7 @@ def FundingByYear():
 
     year_list = []
     for key in year_dict.keys():
-        year_list.append(['year': key, 'total': year_dict[key] ])
+        year_list.append({'year': key, 'total': year_dict[key] })
 
 
     year_list = sorted(year_list, key= lambda x: x["year"], reverse=True)
