@@ -1,7 +1,7 @@
 
 
-url = "https://venture-capital.herokuapp.com/topFundingByCountry";
-d3.json(url).then(function(data) {
+url1 = "https://venture-capital.herokuapp.com/topFundingByCountry";
+d3.json(url1).then(function(data) {
 
 // Sort the data array
 //latam.sort(function(a, b) {
