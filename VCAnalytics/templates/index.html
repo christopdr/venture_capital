@@ -251,7 +251,41 @@
       </div>
   </div>
 </div>
+<div style="height:100px;background-color:white;font-size:36px" id="Evolutionoffunding"></div>
 
+
+<!--Section 4: Gráfica 2    -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <div id="plotly-div"></div>
+      <script src="{{ url_for('static',filename='js/Time-series-Graph.js') }}"></script>
+        <script>
+            buildCharts();
+        </script>
+    </div>
+    <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
+
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h3 class="mt-0 blackfont"><strong><span class= "text-primary">Evolution</span></strong> of Funding</h3>
+              <hr class="divider light my-4">
+              <p class=" mb-4 text-secondary">
+
+                  The LAtAm total funding has been increasing since 1980. <font size="6"><strong><span class= "bluefont">Brazil</span></strong></font> took the lead with more than US$11.4 Bn. </p>
+            <p class=" mb-4 text-secondary">
+                This shows that Brazil seems more attractive for venture investment than any other country, with 9.0x more than the following country with most funding</p>
+            <hr class="divider light my-4">
+                <p><span class= "text-secondary"><i><sub>Sources: Thomson One and News Run</sub></i></span></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
 
 <!--Equipo: Team    -->
 <!--
