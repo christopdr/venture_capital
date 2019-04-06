@@ -181,7 +181,7 @@ def FundingByYear():
         year_list.append({'year': key, 'total': year_dict[key] })
 
 
-    year_list = sorted(year_list, key= lambda x: x["year"], reverse=True)
+    #year_list = sorted(year_list, key= lambda x: x["year"], reverse=True)
     response = jsonify(year_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
