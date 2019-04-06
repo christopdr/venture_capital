@@ -52,15 +52,6 @@ def case_studies():
     #return jsonify(list(df.columns)[2:])
     return render_template("views/case_studies.html")
 
-@app.route("/topFunding", methods=['GET'])
-def topFunding():
-    top =collection.find({}, {'_id':1,'Company Name': 1, 'Total Funding To Date (USD) Mil':1})
-    top_list = []
-    for t in top:
-        print(t)
-        t.pop('_id', None)
-        top_list.append(t)
-    return jsonify(top_list)
 
 @app.route("/getData", methods=['GET'])
 def getData():
@@ -128,7 +119,7 @@ def topFundingByCountry():
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
             elem["Total Funding To Date (USD) Mil"] = 0
-    
+
     total_country = {}
     for elem in data:
         key_val = elem["Company Nation"]
@@ -136,62 +127,63 @@ def topFundingByCountry():
             total_country[key_val] += float(elem["Total Funding To Date (USD) Mil"])
         else:
             total_country[key_val] = float(elem["Total Funding To Date (USD) Mil"])
-    
+
     list_country = []
     for key in total_country.keys():
         list_country.append({"Country": key , "Funding": total_country[key]})
-    
+
     list_country = sorted(list_country, key= lambda x: x["Funding"], reverse=True)
     response = jsonify(list_country)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route("/metadata/<sample>")
-def sample_metadata(sample):
-    """Return the MetaData for a given sample."""
-    sel = [
-        Samples_Metadata.sample,
-        Samples_Metadata.ETHNICITY,
-        Samples_Metadata.GENDER,
-        Samples_Metadata.AGE,
-        Samples_Metadata.LOCATION,
-        Samples_Metadata.BBTYPE,
-        Samples_Metadata.WFREQ,
-    ]
+@app.route("/CompanyFounded", methods=['GET'])
+def CompanyFounded():
+    #myquery = { "Company Nation":"Brazil" }
+    data =list(collection.find())
+    for elem in data:
+        elem.pop('_id', None)
+        elem.pop('All Investor Firms', None)
+        elem.pop('Company / Real Estate', None)
+        elem.pop('Company Business Description', None)
+        elem.pop('CSIC Description', None)
+        elem.pop('Company Street Address, Line 1', None)
+        elem.pop('Company Zip Code', None)
+        elem.pop('Current Investor Firms', None)
+        elem.pop('Gross Profit (USD) Mil', None)
+        elem.pop('Last Investment Date', None)
+        elem.pop('NAIC Description', None)
+        elem.pop('Return on Equity', None)
+        elem.pop('Revenue / Net Sales (USD) Mil', None)
+        elem.pop('Statement Date', None)
+        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        try:
+            elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
+        except:
+            elem["Total Funding To Date (USD) Mil"] = 0
 
-    results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
-
-    # Create a dictionary entry for each row of metadata information
-    sample_metadata = {}
-    for result in results:
-        sample_metadata["sample"] = result[0]
-        sample_metadata["ETHNICITY"] = result[1]
-        sample_metadata["GENDER"] = result[2]
-        sample_metadata["AGE"] = result[3]
-        sample_metadata["LOCATION"] = result[4]
-        sample_metadata["BBTYPE"] = result[5]
-        sample_metadata["WFREQ"] = result[6]
-
-    print(sample_metadata)
-    return jsonify(sample_metadata)
+    data = sorted(data, key= lambda x: x["Total Funding To Date (USD) Mil"], reverse=True)
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
-@app.route("/samples/<sample>")
-def samples(sample):
-    """Return `otu_ids`, `otu_labels`,and `sample_values`."""
-    stmt = db.session.query(Samples).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
+#@app.route("/samples/<sample>")
+#def samples(sample):
+#    """Return `otu_ids`, `otu_labels`,and `sample_values`."""
+#    stmt = db.session.query(Samples).statement
+#    df = pd.read_sql_query(stmt, db.session.bind)
 
     # Filter the data based on the sample number and
     # only keep rows with values above 1
-    sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
+#    sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
     # Format the data to send as json
-    data = {
-        "otu_ids": sample_data.otu_id.values.tolist(),
-        "sample_values": sample_data[sample].values.tolist(),
-        "otu_labels": sample_data.otu_label.tolist(),
-    }
-    return jsonify(data)
+#    data = {
+#        "otu_ids": sample_data.otu_id.values.tolist(),
+#        "sample_values": sample_data[sample].values.tolist(),
+#        "otu_labels": sample_data.otu_label.tolist(),
+#    }
+#    return jsonify(data)
 
 
 if __name__ == "__main__":
