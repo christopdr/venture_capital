@@ -156,7 +156,8 @@ def FundingByYear():
         elem.pop('Return on Equity', None)
         elem.pop('Revenue / Net Sales (USD) Mil', None)
         elem.pop('Statement Date', None)
-        elem["Funding Year"] = elem["Company Founded Date"].split('/')[2]
+        #elem["Funding Year"] = elem["Company Founded Date"].split('/')[2]
+        print(elem["Company Founded Date"].split('/')[2])
         elem.pop('Company Founded Date', None)
         elem["Company Name"] = elem.pop('﻿Company Name', None)
         try:
