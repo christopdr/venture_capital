@@ -200,7 +200,7 @@ def FundingByYearCountry():
 
     country_year_list = []
     for c in country_year_dict.keys():
-        country_year_list.append('country': c, 'data' :country_year_dict[c])
+        country_year_list.append({'country': c, 'data' :country_year_dict[c]})
 
     response = jsonify(country_year_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
