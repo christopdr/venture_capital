@@ -137,6 +137,75 @@ def topFundingByCountry():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route("/FundingByYearCountry", methods=['GET'])
+def FundingByYearCountry():
+    #myquery = { "Company Nation":"Brazil" }
+    data =list(collection.find())
+    for elem in data:
+        elem.pop('_id', None)
+        elem.pop('All Investor Firms', None)
+        elem.pop('Company / Real Estate', None)
+        elem.pop('Company Business Description', None)
+        elem.pop('CSIC Description', None)
+        elem.pop('Company Street Address, Line 1', None)
+        elem.pop('Company Zip Code', None)
+        elem.pop('Current Investor Firms', None)
+        elem.pop('Gross Profit (USD) Mil', None)
+        elem.pop('Last Investment Date', None)
+        elem.pop('NAIC Description', None)
+        elem.pop('Return on Equity', None)
+        elem.pop('Revenue / Net Sales (USD) Mil', None)
+        elem.pop('Statement Date', None)
+        try:
+            elem["Funding Year"] = elem["Company Founded Date"].split('/')[2]
+        except:
+            elem["Funding Year"] = '0'
+        elem.pop('Company Founded Date', None)
+        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        try:
+            elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
+        except:
+            elem["Total Funding To Date (USD) Mil"] = 0
+
+    countries = []
+    for elem in data:
+        country = elem["Company Nation"]
+        if country not in countries:
+            countries.append(country)
+
+    years_list = []
+    for elem in data:
+        year = elem["Funding Year"]
+        if year not in years_list:
+            years_list.append(year)
+
+    country_year_dict = {}
+    def returnYearDict(years_list):
+        dict = {}
+        for year in years_list:
+            dict[year] = 0
+        return dict
+
+    for cou in countries:
+        country_year_dict[cou] = returnYearDict(years_list)
+
+
+    for elem in data:
+        year = elem["Funding Year"]
+        ountry = elem["Company Nation"]
+
+        if country in country_year_dict:
+            if year in country_year_dict[country]:
+                country_year_dict[country][year] += float(elem["Total Funding To Date (USD) Mil"])
+
+    country_year_list = []
+    for c ion country_year_dict.keys():
+        country_year_list.append('country': c, 'data' :country_year_dict[c])
+
+    response = jsonify(country_year_list)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 @app.route("/FundingByYear", methods=['GET'])
 def FundingByYear():
     #myquery = { "Company Nation":"Brazil" }
@@ -166,6 +235,7 @@ def FundingByYear():
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
             elem["Total Funding To Date (USD) Mil"] = 0
+
 
 
     year_dict = {}
