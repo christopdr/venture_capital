@@ -2,7 +2,7 @@
 
 
 
-const url = "https://venture-capital.herokuapp.com/topFunding";
+url = "https://venture-capital.herokuapp.com/topFunding";
 d3.json(url).then(function(data) {
 
 // Sort the data array

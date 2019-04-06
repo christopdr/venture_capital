@@ -1,6 +1,6 @@
 
 
-const url = "https://venture-capital.herokuapp.com/topFundingByCountry";
+url = "https://venture-capital.herokuapp.com/topFundingByCountry";
 d3.json(url).then(function(data) {
 
 // Sort the data array
