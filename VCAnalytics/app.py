@@ -64,6 +64,19 @@ def getData():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+###search bar api######
+@app.route("/searchCompany/<keywordData>", methods=['GET'])
+def searchCompany(keywordData):
+    company_list = []
+    data =list(collection.find({'﻿Company Name': '/^'+ keywordData +'/'}))
+    for elem in data:
+        company_list.append([elem['_id'], elem['﻿Company Name'])
+
+    print(company_list)
+    response = jsonify(company_list)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 
 @app.route("/topFunding", methods=['GET'])
 def topFunding():
