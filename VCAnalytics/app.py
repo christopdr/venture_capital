@@ -69,7 +69,7 @@ def getData():
 def searchCompany(keywordData):
     company_list = []
     print(keywordData)
-    data =list(collection.find({'﻿Company Name': '/^'+ keywordData +'/'}))
+    data =list(collection.find({'Company Name': '/^'+ keywordData +'/'}))
     print(data)
     for elem in data:
         company_list.append([elem['_id'], elem['﻿Company Name']])
