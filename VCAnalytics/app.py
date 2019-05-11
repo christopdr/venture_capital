@@ -72,7 +72,7 @@ def searchCompany(keywordData):
     data =list(collection.find({'﻿Company Name':{'$regex':'^'+keywordData, '$options':"i"}}))
     print(data)
     for elem in data:
-        company_list.append([elem['_id'], elem['﻿Company Name']])
+        company_list.append(elem['﻿Company Name'])
 
     print(company_list)
     response = jsonify(company_list)
