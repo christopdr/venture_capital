@@ -78,7 +78,22 @@ def searchCompany(keywordData):
     response = jsonify(company_list)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+############GET DATA FROM SEARCH ############
+@app.route("/searchCompanyData/<wordSearch>", methods=['GET'])
+def searchCompany(wordSearch):
+    #company_list = []
+    #print(keywordData)
+    data =list(collection.find({'﻿Company Name':wordSearch}))
+    #print(data)
+    #for elem in data:
+    #    company_list.append(elem['﻿Company Name'])
 
+    print(data)
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+##########################################
 
 @app.route("/topFunding", methods=['GET'])
 def topFunding():
