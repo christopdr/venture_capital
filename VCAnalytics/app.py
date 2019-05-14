@@ -85,9 +85,9 @@ def searchCompanyData(wordSearch):
     #print(keywordData)
     data =list(collection.find({'﻿Company Name':wordSearch}))
     #print(data)
-    #for elem in data:
-    #    company_list.append(elem['﻿Company Name'])
-
+    for elem in data:
+        #company_list.append(elem['﻿Company Name'])
+        elem.pop('_id', None)
     print(data)
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')
