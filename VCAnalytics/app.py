@@ -80,7 +80,7 @@ def searchCompany(keywordData):
     return response
 ############GET DATA FROM SEARCH ############
 @app.route("/searchCompanyData/<wordSearch>", methods=['GET'])
-def searchCompany(wordSearch):
+def searchCompanyData(wordSearch):
     #company_list = []
     #print(keywordData)
     data =list(collection.find({'﻿Company Name':wordSearch}))
