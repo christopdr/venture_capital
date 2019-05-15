@@ -56,7 +56,9 @@ def case_studies():
 @app.route("/getData", methods=['GET'])
 def getData():
     #myquery = { "Company Nation":"Brazil" }
+    print(collection)
     data =list(collection.find())
+    print(data)
     for elem in data:
         elem.pop('_id', None)
 
