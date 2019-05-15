@@ -69,10 +69,10 @@ def getData():
 def searchCompany(keywordData):
     company_list = []
     print(keywordData)
-    data =list(collection.find({'﻿Company Name':{'$regex':'^'+keywordData, '$options':"i"}}))
+    data =list(collection.find({'Company Name':{'$regex':'^'+keywordData, '$options':"i"}}))
     print(data)
     for elem in data:
-        company_list.append(elem['﻿Company Name'])
+        company_list.append(elem['Company Name'])
 
     print(company_list)
     response = jsonify(company_list)
@@ -83,10 +83,10 @@ def searchCompany(keywordData):
 def searchCompanyData(wordSearch):
     #company_list = []
     #print(keywordData)
-    data =list(collection.find({'﻿Company Name':wordSearch}))
+    data =list(collection.find({'Company Name':wordSearch}))
     #print(data)
     for elem in data:
-        #company_list.append(elem['﻿Company Name'])
+        #company_list.append(elem['Company Name'])
         elem.pop('_id', None)
     print(data)
     response = jsonify(data)
@@ -114,7 +114,7 @@ def topFunding():
         elem.pop('Return on Equity', None)
         elem.pop('Revenue / Net Sales (USD) Mil', None)
         elem.pop('Statement Date', None)
-        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        elem["Company Name"] = elem.pop('Company Name', None)
         try:
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
@@ -144,7 +144,7 @@ def topFundingByCountry():
         elem.pop('Return on Equity', None)
         elem.pop('Revenue / Net Sales (USD) Mil', None)
         elem.pop('Statement Date', None)
-        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        elem["Company Name"] = elem.pop('Company Name', None)
         try:
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
@@ -191,7 +191,7 @@ def FundingByYearCountry():
         except:
             elem["Funding Year"] = '0'
         elem.pop('Company Founded Date', None)
-        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        elem["Company Name"] = elem.pop('Company Name', None)
         try:
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
@@ -261,7 +261,7 @@ def FundingByYear():
         except:
             elem["Funding Year"] = '0'
         elem.pop('Company Founded Date', None)
-        elem["Company Name"] = elem.pop('﻿Company Name', None)
+        elem["Company Name"] = elem.pop('Company Name', None)
         try:
             elem["Total Funding To Date (USD) Mil"] = float(elem["Total Funding To Date (USD) Mil"])
         except:
