@@ -10,7 +10,7 @@ from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
 client = pymongo.MongoClient("mongodb+srv://adminUsr:mongo1234@venturecapital-mmycs.mongodb.net/admin?retryWrites=true")
-db = client.VentureCapitalWW_db
+db = client.VentureCapital
 collection = db.LATAMtb
 
 app.config.update(
