@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 <head>
 
   <title>Venture Capital Panorama in LatAm</title>
@@ -19,10 +19,24 @@
 </head>
 <body>
 
+<!--Scripts to export to a CSS File-->
+
+<script>
+function relocate_home()
+{
+     location.href="/";
+}
+</script>
+
+
+
+
+<!--################################################################################## -->
+
 <!-- Navigation Bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-collapse-sm fixed-top py-3"> <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5faee6;">-->
-  <a class="navbar-brand text-secondary" href="#" onclick=" relocate_home()">
-    <strong><span class= "text-primary">VC </span></strong><strong>A</strong>nalytics
+  <a class="navbar-brand text-secondary" href="/" >
+    <strong><img src="{{ url_for('static',filename='icons/Logo/L2-s.png') }}" width="10" height="10" class="d-inline-block align-mid" alt=""><span class= "purplefont">Angels</span></strong> of Capital
   </a>
 
     <span class="navbar-toggler-icon"></span>
@@ -34,16 +48,18 @@
           <strong>In</strong>dex
         </a>
         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#prologue"><strong><span class= "text-primary">VC-Startup </span></strong>Intro</a>
-          <a class="dropdown-item" href="#VCFunding"><strong><span class= "text-primary">Start-Up </span></strong>Panorama</a>
-          <a class="dropdown-item" href="fig3.html">Other <strong><span class= "text-primary">G</span></strong>raphs</a>
-          <a class="dropdown-item" href="fig4.html">The <strong><span class= "text-primary">D</span></strong>ata<strong><span class= "text-primary">!</span></strong></a>
+          <a class="dropdown-item" href="#prologue"><strong><span class= "purplefont-l">VC-Startup </span></strong>Intro</a>
+          <a class="dropdown-item" href="#VCFunding"><strong><span class= "purplefont-l">Start-Up </span></strong>Panorama</a>
+          <a class="dropdown-item" href="/dynamicData">The <strong><span class= "purplefont-l">D</span></strong>ynamic Data</a>
+          <a class="dropdown-item" href="/data">The <strong><span class= "purplefont-l">D</span></strong>ata<strong><span class= "purplefont-l">!</span></strong></a>
+            <a class="dropdown-item" href="/algorithm"><strong><span class= "purplefont-l">R</span></strong>obo <strong><span class= "purplefont-l">A</span></strong>dvisory<strong><span class= "purplefont-l">!</span></strong></a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item font-weight-bold text-secondary" href="{{ url_for('case_studies') }}">Case Studies</a>
+          <a class="dropdown-item font-weight-bold text-secondary" href="/capitalSearch">Capital search</a>
+          <a class="dropdown-item font-weight-bold text-secondary" href="/caseStudies">Case Studies</a>
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link text-secondary" href="Comparison.html">About <strong>Us</strong> <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-secondary" href="/about">About <strong>Us</strong> <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -55,24 +71,35 @@
  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" >
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100 h-100" src="{{ url_for('static',filename='backgrounds/NAV/A1.png') }}" alt="First slide">
+      <img class="d-block w-100 h-100" src="{{ url_for('static',filename='backgrounds/NAV/B3-w.jpg') }}" alt="First slide">
           <div class="carousel-caption d-block d-md-block">
-            <h1 class="text-LIGHT">
-                As the <strong><span class= "text-primary">D</span></strong>igital <strong><span class= "text-primary">A</span></strong>ge enables the generation of yotabytes of information, how do you analyze all this information?, to do an accurate and faster decision-making, you hire <strong><span class= "text-primary">US</span></strong>, so you can focus on what matters.</h1>
+            <h1 class="text-light">
+                We help the <strong><span class= "purplefont-l">Ideas</span></strong> to thrive, go from local, to global, to <strong><span class= "purplefont-l">IPO</span></strong> and <strong><span class= "purplefont-l">beyond</span></strong>. We seek to advise and focus investment towards disrupting and enhancing <strong><span class= "purplefont-l">quality of life</span></strong> and are <strong><span class= "purplefont-l">made to last</span></strong>
+              </h1>
           </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static', filename='backgrounds/NAV/A2.jpg') }}" alt="Second slide">
-          <div class="carousel-caption d-none d-md-block">
-            <h1 class="text-dark">
-                As the <strong><span class= "text-primary">D</span></strong>igital <strong><span class= "text-primary">A</span></strong>ge enables the generation of yotabytes of information, how do you analyze all this information?, to do an accurate and faster decision-making, you hire <strong><span class= "text-primary">US</span></strong>, so you can focus on what matters.</h1>
-          </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="{{ url_for('static',filename='backgrounds/NAV/A3.png') }}" alt="Third slide">
+      <img class="d-block w-100" src="{{ url_for('static',filename='backgrounds/NAV/B1-w.jpg') }}" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="text-light">
-                As the <strong><span class= "text-primary">D</span></strong>igital <strong><span class= "text-primary">A</span></strong>ge enables the generation of yotabytes of information, how do you analyze all this information?, to do an accurate and faster decision-making, you hire <strong><span class= "text-primary">US</span></strong>, so you can focus on what matters.</h1>
+                We help the <strong><span class= "purplefont-l">Ideas</span></strong> to thrive, go from local, to global, to <strong><span class= "purplefont-l">IPO</span></strong> and <strong><span class= "purplefont-l">beyond</span></strong>. We seek to advise and focus investment towards disrupting and enhancing <strong><span class= "purplefont-l">quality of life</span></strong> and are <strong><span class= "purplefont-l">made to last</span></strong>
+              </h1>
+          </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static',filename='backgrounds/NAV/B2-w.jpg') }}" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="text-light">
+                We help the <strong><span class= "purplefont-l">Ideas</span></strong> to thrive, go from local, to global, to <strong><span class= "purplefont-l">IPO</span></strong> and <strong><span class= "purplefont-l">beyond</span></strong>. We seek to advise and focus investment towards disrupting and enhancing <strong><span class= "purplefont-l">quality of life</span></strong> and are <strong><span class= "purplefont-l">made to last</span></strong>
+              </h1>
+          </div>
+    </div>
+    <div class="carousel-item">
+     <img class="d-block w-100" src="{{ url_for('static',filename='backgrounds/NAV/B4-w.jpg') }}" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="text-light">
+                We help the <strong><span class= "purplefont-l">Ideas</span></strong> to thrive, go from local, to global, to <strong><span class= "purplefont-l">IPO</span></strong> and <strong><span class= "purplefont-l">beyond</span></strong>. We seek to advise and focus investment towards disrupting and enhancing <strong><span class= "purplefont-l">quality of life</span></strong> and are <strong><span class= "purplefont-l">made to last</span></strong>
+          </h1>
           </div>
     </div>
   </div>
@@ -98,7 +125,7 @@
     <div class="container mb-5">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0 text-secondary">Venture Capital - Data Analysis in LatAm</h2>
+            <h2 class="text-white mt-0 text-secondary"><strong><span class="purplefont-l">V</span></strong>enture <strong><span class="purplefont-l">C</span></strong>apital - Data Analysis in LatAm</h2>
           <hr class="divider light my-4">
           <p class=" mb-4 text-secondary">Explore the interactive graphics to understand where the VCs are investing in LatAm, which sectors are the preferred, what countries have the most start-ups funded, find out with us!</p>
           <a class="btn btn-primary btn-xl js-scroll-trigger text-light" href="#prologue">Get Started!</a>
@@ -160,7 +187,7 @@
 
 <!--Section 2: Prologue    -->
 
-<div class="container-fluid">
+<div class="container-fluid" id="prologue">
   <div class="row">
     <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
 
@@ -177,13 +204,13 @@
         <div class="container mb-5">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <h3 class="mt-0 blackfont"><strong><span class= "text-primary">VC-Startup</span></strong> Intro</h3>
+              <h3 class="mt-0 blackfont"><strong><span class= "purplefont-l">Global</span></strong> View</h3>
               <hr class="divider light my-4">
               <p class=" mb-4 text-secondary">
 
-                  For 2050 the global population will reach <font size="6"><strong><span class= "bluefont">9.8</span></strong></font> billion according to the UN, there will be a strong pressure for new products and demand for water, energy and food while fertility rates are decreasing in developed countries, baby boomers retiring, among other challenges that will be faced. </p>
+                  For 2050 the global population will reach <font size="6"><strong><span class= "purplefont-l">9.8</span></strong></font> billion according to the UN, there will be a strong pressure for new products and demand for water, energy and food while fertility rates are decreasing in developed countries, baby boomers retiring, among other challenges that will be faced. </p>
             <p class=" mb-4 text-secondary">
-                The <font size="5"><strong><span class= "bluefont">Capital plays a critical role</span></strong></font>, where companies are experimenting with new technologies, products and services. Thats why there is a need to allocate new capital to accelerate the innovation and solutions for the new challenges arising around the world. </p>
+                The <font size="5"><strong><span class= "purplefont-l">Capital plays a critical role</span></strong></font>, where companies are experimenting with new technologies, products and services. Thats why there is a need to allocate new capital to accelerate the innovation and solutions for the new challenges arising around the world. </p>
              <p class=" mb-4 text-secondary">
             In LatAm the panorama of funding it's changing with the entrance of titan funds that will uplift competitiveness and might awake interest from other VCs that could potentially invest in the region. (The average ticket invested in México was US$ 1.0 Million while the new fund makes tickets of +US$ 20.0 Million)<sup>1</sup></p>
             <hr class="divider light my-4">
@@ -211,10 +238,12 @@
         <div class="container mb-5">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <h3 class="mt-0 blackfont"><strong><span class= "text-primary">Start-Up</span></strong> Panorama in LatAm</h3>
+              <h3 class="mt-0 blackfont"><strong><span class= "purplefont-l">Start-Up</span></strong> Panorama in LatAm</h3>
               <hr class="divider light my-4">
               <p class=" mb-4 text-secondary">
-              In this context, one of the most funded companies in LatAm is Rappi, with more than US$500 Mn and it comes from Colombia and other 4 in Brazil, this shows the gap between countries and their starup environment.
+              In this context, one of the most funded companies in LatAm is Rappi, with more than US$500 Mn, from Colombia and the other 4 in Brazil, showing the gap between countries and their starup environment.
+
+                  The 30 of April of 2019, Softbank's Growth Technology Fund invested US$ 1.0 Bn in Rappi at a US$ 2.6 Bn valuation, making Rappi a Colombian <strong><span class= "purplefont-l">Unicorn</span></strong>
               </div>
           </div>
         </div>
@@ -222,7 +251,7 @@
     <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
             <div id="plot_company_1" style="width: 600px; height: 600px;" class="plotly-graph-div"></div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-            <script src="{{ url_for('static',filename='js/plots_company.js') }}"></script>
+            <script src="../static/js/plots_company.js"></script>
 
       </div>
   </div>
@@ -236,21 +265,21 @@
     <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <div id="plotly-div"></div>
-      <script src="{{ url_for('static',filename='js/Time-series-Graph.js') }}"></script>
-        <script>
-            buildCharts();
-        </script>
+    <script src="../static/js/funding_by_year_chart.js"></script>
+      <script>
+          buildCharts();
+      </script>
     </div>
     <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
 
         <div class="container mb-5">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <h3 class="mt-0 blackfont"><strong><span class= "text-primary">Evolution</span></strong> of Funding</h3>
+              <h3 class="mt-0 blackfont"><strong><span class= "purplefont-l">Evolution</span></strong> of Funding</h3>
               <hr class="divider light my-4">
               <p class=" mb-4 text-secondary">
 
-                  The LAtAm total funding has been increasing since 1980. <font size="6"><strong><span class= "bluefont">Brazil</span></strong></font> took the lead with more than US$11.4 Bn. </p>
+                  The LAtAm total funding has been increasing since 1980. <font size="6"><strong><span class= "purplefont-l">Brazil</span></strong></font> took the lead with more than US$11.4 Bn. </p>
             <p class=" mb-4 text-secondary">
                 This shows that Brazil seems more attractive for venture investment than any other country, with 9.0x more than the following country with most funding</p>
             <hr class="divider light my-4">
@@ -263,69 +292,18 @@
   </div>
 </div>
 
-<!--Equipo: Team    -->
-<!--
- <div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="../VCAnalytics/Resources/Images/Profile/TempA.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>Christian Arroyo</h2>
-        <p class="title">CEO &amp; Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="../VCAnalytics/Resources/Images/Profile/TempA.jpg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Christopher ...</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+    <!--Divider between containers-->
+<div style="height:100px;background-color:white"></div>
 
-  <div class="column">
-    <div class="card">
-      <img src="../VCAnalytics/Resources/Images/Profile/TempB.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>Diana Mastache</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="../VCAnalytics/Resources/Images/Profile/TempA.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>Jos[e María</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-</div>
--->
 <div id="plot_country" style="width: 100%; height: 600px;" class="plotly-graph-div"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-<script src="{{ url_for('static',filename='js/plots_country.js') }}"></script>
-    <!--Divider between containers-->
-<!-- <div style="height:500px;background-color:white"></div> -->
+<script src="../static/js/plots_country.js"></script>
 
+
+    <!--Divider between containers-->
+<div style="height:50px;background-color:white"></div>
 
 
 <!--Fun Fact Cards-->
@@ -365,7 +343,6 @@
 
 
 
-
     <!--Divider between containers-->
 <div style="height:100px;background-color:white"></div>
 
@@ -373,7 +350,7 @@
 <!--   Footer    -->
 
 <div class="card-footer bg-light text-dark mt-auto">
-    <p class="text-center">Data Analytics Bootcamp - Project 2.0 </p>
+    <p class="text-center">Data Analytics Bootcamp - Project 3.0 </p>
 </div>
 
 
@@ -388,3 +365,12 @@ function relocate_home()
      location.href="index.html";
 }
 </script>
+<style>.carousel-caption {
+    top: 100px;
+    bottom: auto;
+    left: 50px;
+    text-align: left;
+    padding:20px;
+    background-color: rgba(56, 60, 66, 0.3)
+}
+</style>

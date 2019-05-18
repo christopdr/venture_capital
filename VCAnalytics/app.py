@@ -16,7 +16,7 @@ collection = db.LATAMtb
 app.config.update(
     JSON_AS_ASCII= True
 )
-
+##
 #################################################
 # Database Setup
 #################################################
@@ -39,6 +39,40 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+
+
+########INDEX LINKS######################
+
+@app.route("/dynamicData")
+def dynamicData():
+    """Return section Dynamic Data."""
+    return render_template("dynamic_data.html")
+
+@app.route("/about")
+def about():
+    """Return section About us."""
+    return render_template("aboutus.html")
+
+@app.route("/data")
+def data():
+    """Return section data."""
+    return render_template("data.html")
+
+@app.route("/caseStudies")
+def caseStudies():
+    """Return section Case studies."""
+    return render_template("case_studies.html")
+
+@app.route("/algorithm")
+def algorithm():
+    """Return section Case studies."""
+    return render_template("algorithm.html")
+
+@app.route("/capitalSearch")
+def capitalSearch():
+    """Return section Case studies."""
+    return render_template("company_search.html")
+###############################################
 
 @app.route("/case_studies", methods=['GET', 'POST'])
 def case_studies():

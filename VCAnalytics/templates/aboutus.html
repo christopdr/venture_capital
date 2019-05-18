@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">>
+<head>
+
+  <title>The Algorithm</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/master.css') }}">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/plotlyjs-bundle.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/graph1.js') }}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+<body>
+
+  <!-- Navigation Bar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-collapse-sm fixed-top py-3"> <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5faee6;">-->
+    <a class="navbar-brand text-secondary" href="/" >
+      <strong><img src="{{ url_for('static',filename='icons/Logo/L2-s.png') }}" width="10" height="10" class="d-inline-block align-mid" alt=""><span class= "purplefont">Angels</span></strong> of Capital
+    </a>
+
+      <span class="navbar-toggler-icon"></span>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto" style="w-auto;">
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>In</strong>dex
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/dynamicData">The <strong><span class= "purplefont-l">D</span></strong>ynamic Data</a>
+            <a class="dropdown-item" href="/data">The <strong><span class= "purplefont-l">D</span></strong>ata<strong><span class= "purplefont-l">!</span></strong></a>
+              <a class="dropdown-item" href="/algorithm"><strong><span class= "purplefont-l">R</span></strong>obo <strong><span class= "purplefont-l">A</span></strong>dvisory<strong><span class= "purplefont-l">!</span></strong></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item font-weight-bold text-secondary" href="/capitalSearch">Capital search</a>
+            <a class="dropdown-item font-weight-bold text-secondary" href="/caseStudies">Case Studies</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-secondary" href="/about">About <strong>Us</strong> <span class="sr-only">(current)</span></a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+    <!--Divider between containers-->
+<div style="height:100px;background-color:white"></div>
+
+
+
+    <h3>The <span class="purplefont-l">Team</span></h3>
+
+    <div class="blockquote-wrapper">
+  <div class="blockquote">
+    <h1>
+        <span class="text-secondary">We built the capacity to <span class="purplefont-l"><strong>advise you from 0 to 1 so you can successfully focus on what matters</strong></span>, the Company and build a future for mankind.</span>
+     </h1>
+    <h4>&mdash;Angels of Capital<br><em>Designed to thrive</em></h4>
+  </div>
+</div>
+
+
+
+<div style="height:50px;background-color:white"></div>
+
+
+        <div class="box2">
+
+           <div class="card2">
+         <div class="imgBx">
+            <img src="https://media.licdn.com/dms/image/C4E03AQHQ5NwrvDH2Bg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=ydRyLjMc1eipLwyFahLgZrZI1Ko3ihGecrpmVczh_7U" alt="images">
+         </div>
+         <div class="details">
+            <h2>Christopher Díaz<br><span>Full Stack Developer</span></h2>
+          </div>
+       </div>
+
+        <div class="card2">
+         <div class="imgBx">
+            <img src="https://media.licdn.com/dms/image/C4E03AQH6STELnbCCIg/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=FZVJ46HOiNU0THlNt6DzasseEJnTlct9URfddm03KPY" alt="images">
+         </div>
+         <div class="details">
+            <h2>Diana Mastache<br><span>Digital analyst and Dev.</span></h2>
+          </div>
+       </div>
+    </div>
+
+
+
+
+    <div style="height:50px;background-color:white"></div>
+
+
+
+
+    =
+
+
+    <div class="box2">
+      <div class="card2">
+        <div class="imgBx">
+            <img src="https://media.licdn.com/dms/image/C4D03AQEdOnrL82r3AQ/profile-displayphoto-shrink_200_200/0?e=1563408000&v=beta&t=CWHg66SYQjOs2JPrCH2jMxRhReLA9McLqhShabGZQSU" alt="images">
+        </div>
+        <div class="details">
+            <h2>Christian Arroyo<br><span>IB Associate and Dev.</span></h2>
+        </div>
+      </div>
+
+       <div class="card2">
+         <div class="imgBx">
+            <img src="https://media.licdn.com/dms/image/C4E03AQFIkkxHIihNiA/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=iogQfgoxZkdwgbnhruyO6YlVDx2AuhjusOF9Q9NmTeY" alt="images">
+         </div>
+         <div class="details">
+            <h2>José Bermudez<br><span> Sales Sr. Coordinator and Dev.</span></h2>
+          </div>
+       </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!--Divider between containers-->
+<div style="height:100px;background-color:white"></div>
+
+
+<!--   Footer    -->
+
+<div class="card-footer bg-light text-dark mt-auto">
+    <p class="text-center">Data Analytics Bootcamp - Project 3.0 </p>
+</div>
+
+
+</body>
+</html>
+
+<!--Scripts to export to a CSS File-->
+
+<script>
+function relocate_home()
+{
+     location.href="index.html";
+}
+</script>
+<style>.carousel-caption {
+    top: 100px;
+    bottom: auto;
+    left: 50px;
+    text-align: left;
+    padding:20px;
+    background-color: rgba(56, 60, 66, 0.3)
+}
+</style>

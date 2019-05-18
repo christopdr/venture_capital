@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">>
+<head>
+
+  <title>The Algorithm</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/master.css') }}">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/plotlyjs-bundle.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='js/graph1.js') }}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+<body>
+
+  <!-- Navigation Bar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-collapse-sm fixed-top py-3"> <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5faee6;">-->
+    <a class="navbar-brand text-secondary" href="/" >
+      <strong><img src="{{ url_for('static',filename='icons/Logo/L2-s.png') }}" width="10" height="10" class="d-inline-block align-mid" alt=""><span class= "purplefont">Angels</span></strong> of Capital
+    </a>
+
+      <span class="navbar-toggler-icon"></span>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto" style="w-auto;">
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>In</strong>dex
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/dynamicData">The <strong><span class= "purplefont-l">D</span></strong>ynamic Data</a>
+            <a class="dropdown-item" href="/data">The <strong><span class= "purplefont-l">D</span></strong>ata<strong><span class= "purplefont-l">!</span></strong></a>
+              <a class="dropdown-item" href="/algorithm"><strong><span class= "purplefont-l">R</span></strong>obo <strong><span class= "purplefont-l">A</span></strong>dvisory<strong><span class= "purplefont-l">!</span></strong></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item font-weight-bold text-secondary" href="/capitalSearch">Capital search</a>
+            <a class="dropdown-item font-weight-bold text-secondary" href="/caseStudies">Case Studies</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-secondary" href="/about">About <strong>Us</strong> <span class="sr-only">(current)</span></a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+    <!--Divider between containers-->
+<div style="height:180px;background-color:white"></div>
+
+
+
+<h3><span class="purplefont-l">New Ventures</span> <span class="text-secondary">Robo-Advisory</span></h3>
+
+<section id="ours" class="steps-section">
+  <div class="steps-timeline">
+    <div class="steps-one">
+      <div class="circle"></div>
+      <h3 class="steps-name">Design</h3>
+      <p class="steps-description">Idea</p>
+    </div>
+    <div class="steps-two">
+      <div class="circle"></div>
+      <h3 class="steps-name">Start-Up</h3>
+      <p class="steps-description">Product</p>
+    </div>
+	  <div class="steps-two-one">
+      <div class="circle"></div>
+      <h3 class="steps-name">Ramp-Up</h3>
+     </div>
+	  <div class="steps-two-two">
+      <div class="circle"></div>
+      <h3 class="steps-name">Ready for Series C?<br/> LAte VC Funding</h3>
+    </div>
+    <div class="steps-three">
+      <div class="circle"></div>
+      <h3 class="steps-name">IPO</h3>
+      <p class="steps-description">..and Beyond</p>
+    </div>
+</div>
+</section>
+
+<section id="others" class="steps-section">
+  <div class="steps-timeline">
+    <div class="steps-one">
+      <div class="circle"></div>
+      <h3 class="steps-name">Start-Up</h3>
+      <p class="steps-description">Product</p>
+    </div>
+    <div class="steps-two">
+      <div class="circle"></div>
+      <h3 class="steps-name">Series C+</h3>
+      <p class="steps-description">LAte VC Funding</p>
+    </div>
+    <div class="steps-three">
+      <div class="circle"></div>
+      <h3 class="steps-name">Few<br/>IPOs</h3>
+      <p class="steps-description">Poor Performance</p>
+    </div>
+</div>
+</section>
+
+
+
+    <!--Divider between containers-->
+<div style="height:200px;background-color:white"></div>
+
+<!--Section 2: Prologue    -->
+
+<div class="container-fluid" id="prologue">
+  <div class="row">
+    <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
+
+        <header>
+          <div class="overlay-1"></div>
+          <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://giant.gfycat.com/HeavyVigilantDragon.webm" type="video/mp4">
+          </video>
+        </header>
+
+    </div>
+    <div class="col-sm-6 my-auto" style="background-color:rgba(0, 0, 0, 0.0);">
+
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h3 class="mt-0 blackfont"><strong><span class= "purplefont-l">Data</span></strong> Decade</h3>
+              <hr class="divider light my-4">
+              <p class=" mb-4 text-secondary">
+
+                  Each <span class="purplefont-l"><strong>10</strong></span> years, there is a so called <i>"Computing Cycle"</i> that increaces the computing power access by c.10 times.</p>
+            <p class=" mb-4 text-secondary">
+                This started in the <font size="5"><strong><span class= "purplefont-l">1960s</span></strong></font> with the main-frame computers which helped companies to scale and increase their global presence, in the 1970s the mini computer came out, in the <font size="5"><strong><span class= "purplefont-l">1980s</span></strong></font> the desktop computer helped companies to achieve better efficiency from workers and empowered them.  </p>
+             <p class=" mb-4 text-secondary">
+                 The <font size="5"><strong><span class= "purplefont-l">1990s</span></strong></font> one of the most disruptive cycles came with the creation of the internet, in the <font size="5"><strong><span class= "purplefont-l">2000</span></strong></font> the mobile internet pushed the internet directly to consumers hand, as we go through this current era, the data decade, and companies starting to see value and use their internal data.<sup>1</sup></p>
+            <hr class="divider light my-4">
+                <p><span class= "text-secondary"><i><sub>Sources: Equity Research (Data), News Run and MS.</sub></i></span></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+
+
+
+        <!--Divider between containers-->
+<div style="height:100px;background-color:white"></div>
+
+
+
+<!--   Footer    -->
+
+<div class="card-footer bg-light text-dark mt-auto">
+    <p class="text-center">Data Analytics Bootcamp - Project 3.0 </p>
+</div>
+
+
+</body>
+</html>
+
+<!--Scripts to export to a CSS File-->
+
+<script>
+function relocate_home()
+{
+     location.href="index.html";
+}
+</script>
+<style>.carousel-caption {
+    top: 100px;
+    bottom: auto;
+    left: 50px;
+    text-align: left;
+    padding:20px;
+    background-color: rgba(56, 60, 66, 0.3)
+}
+</style>
